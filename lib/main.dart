@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'story_brain.dart';
+
+StoryBrain storyBrain = StoryBrain();
 
 void main() {
   runApp(Destini());
@@ -42,7 +45,7 @@ class _StoryPageState extends State<StoryPage> {
                 flex: 12,
                 child: Center(
                   child: Text(
-                    'The Story goes here',
+                    storyBrain.getStory(),
                     style: TextStyle(
                       fontSize: 25.0,
                     ),
@@ -53,7 +56,7 @@ class _StoryPageState extends State<StoryPage> {
                 child: TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(backgroundColor: Colors.blue),
-                  child: Text('Choice1',
+                  child: Text(storyBrain.getChoice1(),
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.white,
@@ -71,7 +74,7 @@ class _StoryPageState extends State<StoryPage> {
                     backgroundColor: Colors.red,
 
                   ),
-                  child: Text('Choice1',
+                  child: Text(storyBrain.getChoice2(),
                   style: TextStyle(
                     fontSize: 20.0,
                     color: Colors.white,
