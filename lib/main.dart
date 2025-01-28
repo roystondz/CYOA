@@ -27,16 +27,10 @@ class _StoryPageState extends State<StoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-
           decoration: BoxDecoration(
-            image:DecorationImage(image: AssetImage('images/background.png'),
-              fit: BoxFit.cover
-
-            ),
+            image: DecorationImage(
+                image: AssetImage('images/background.png'), fit: BoxFit.cover),
           ),
-
-
-
           constraints: BoxConstraints.expand(),
           padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 15.0),
           child: Column(
@@ -56,7 +50,8 @@ class _StoryPageState extends State<StoryPage> {
                 child: TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(backgroundColor: Colors.blue),
-                  child: Text(storyBrain.getChoice1(),
+                  child: Text(
+                    storyBrain.getChoice1(),
                     style: TextStyle(
                       fontSize: 20.0,
                       color: Colors.white,
@@ -72,13 +67,13 @@ class _StoryPageState extends State<StoryPage> {
                   onPressed: () {},
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.red,
-
                   ),
-                  child: Text(storyBrain.getChoice2(),
-                  style: TextStyle(
-                    fontSize: 20.0,
-                    color: Colors.white,
-                  ),
+                  child: Text(
+                    storyBrain.getChoice2(),
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
