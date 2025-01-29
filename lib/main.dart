@@ -48,35 +48,60 @@ class _StoryPageState extends State<StoryPage> {
               ),
               Expanded(
                 child: TextButton(
-                  onPressed: () {},
-                  style: TextButton.styleFrom(backgroundColor: Colors.blue),
-                  child: Text(
-                    storyBrain.getChoice1(),
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20.0,
-              ),
-              Expanded(
-                child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      storyBrain.nextStory(1);
+                    });
+                  },
                   style: TextButton.styleFrom(
-                    backgroundColor: Colors.red,
+                    backgroundColor: Colors.blue,
+                    alignment: Alignment.center, // Centers text inside button
+                    minimumSize: Size(double.infinity, 60.0), // Ensures full width & proper height
                   ),
-                  child: Text(
-                    storyBrain.getChoice2(),
-                    style: TextStyle(
-                      fontSize: 20.0,
-                      color: Colors.white,
+                  child: FittedBox( // Ensures text fits inside button
+                    child: Text(
+                      storyBrain.getChoice1(),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
               ),
+              SizedBox(height: 20.0),
+              Expanded(
+                child: Visibility(
+                  visible: storyBrain.buttonShouldBeVisible(),
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() {
+                        storyBrain.nextStory(2);
+                      });
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      alignment: Alignment.center,
+                      minimumSize: Size(double.infinity, 60.0),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 25.0),
+                      child: FittedBox(
+                        child: Text(
+                          storyBrain.getChoice2(),
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
             ],
           )),
     );
